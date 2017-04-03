@@ -10,7 +10,9 @@ apt-get -y install --no-install-recommends \
     libhdf5-dev \
     libxml2-dev \
     libsz2 \
-    libboost-all-dev
+    libboost-all-dev \
+    qtbase-5-dev \
+    yaml-cpp-dev
 mkdir -p /build/dependencies
 cd /build/dependencies
 
@@ -20,7 +22,7 @@ chmod +x /build/linuxdeployqt
 cp /build/linuxdeployqt /usr/bin
 
 # compile armadillo
-wget --no-check-certificate https://github.com/dpfoose/numerical-environment/releases/download/1/armadillo-7.800.1.tar.xz
+wget --no-check-certificate https://github.com/VespucciProject/VespucciBuildEnvironment/releases/download/1.1/armadillo-7.800.1.tar.xz 
 tar xvf armadillo-7.800.1.tar.xz
 mkdir armadillo-7.800.1/build && cd armadillo-7.800.1/build
 cmake ..
@@ -32,5 +34,21 @@ wget http://mlpack.org/files/mlpack-2.1.1.tar.gz
 tar xvf mlpack-2.1.1.tar.gz
 mkdir mlpack-2.1.1/build && cd mlpack-2.1.1/build
 cmake .. -DBUILD_TESTS:BOOL=OFF -DBUILD_CLI_EXECUTABLES:BOOL=OFF
+make && make install
+cd ../..
+
+#get libemf
+wget --no-check-certificate https://github.com/VespucciProject/VespucciBuildEnvironment/releases/download/1.1/libemf-1.0.9.tar.gz
+tar xvf libemf-1.0.9.tar.gz
+cd libemf-1.0.9.tar.gz
+./configure
+make && make install
+cd ..
+
+#get EmfEngine:
+git clone https://github.com/VespucciProject/EmfEngineGPL.git
+mkdir EmfEngineGPL/build
+cd EmfEngineGPL/build
+cmake ..
 make && make install
 cd ../..
