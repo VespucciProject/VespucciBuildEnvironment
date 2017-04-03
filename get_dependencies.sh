@@ -14,13 +14,13 @@ apt-get -y install --no-install-recommends \
 mkdir -p /build/dependencies
 cd /build/dependencies
 
-mkdir /src/build
+mkdir -p /src/build
 
-chmod +x linuxdeployqt
-cp linuxdeployqt /usr/bin
+chmod +x /build/linuxdeployqt
+cp /build/linuxdeployqt /usr/bin
 
 # compile armadillo
-curl https://github.com/dpfoose/numerical-environment/releases/download/1/armadillo-7.800.1.tar.xz > armadillo.tar.xz
+curl -k https://github.com/dpfoose/numerical-environment/releases/download/1/armadillo-7.800.1.tar.xz > armadillo.tar.xz
 tar xvf armadillo.tar.xz
 mkdir armadillo-7.800.1/build && cd armadillo-7.800.1/build
 cmake ..
