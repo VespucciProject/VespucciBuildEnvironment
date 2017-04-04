@@ -49,7 +49,7 @@ cd ..
 
 #get EmfEngine:
 wget --no-check-certificate https://github.com/VespucciProject/EmfEngineGPL/archive/master.zip
-tar xvf master.zip
+unzip EmfEngineGPL-master.zip
 mkdir EmfEngineGPL-master/build
 cd EmfEngineGPL-master/build
 cmake ..
