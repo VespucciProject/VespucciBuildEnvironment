@@ -11,8 +11,10 @@ apt-get -y install --no-install-recommends \
     libxml2-dev \
     libsz2 \
     libboost-all-dev \
-    qtbase-5-dev \
-    yaml-cpp-dev
+    qtbase5-dev \
+    libqt5svg5 \
+    libqt5printsupport5 \
+    libyaml-cpp-dev
 mkdir -p /build/dependencies
 cd /build/dependencies
 
