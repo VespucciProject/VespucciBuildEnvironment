@@ -48,9 +48,10 @@ make && make install
 cd ..
 
 #get EmfEngine:
-git clone https://github.com/VespucciProject/EmfEngineGPL.git
-mkdir EmfEngineGPL/build
-cd EmfEngineGPL/build
+wget --no-check-certificate https://github.com/VespucciProject/EmfEngineGPL/archive/master.zip
+tar xvf master.zip
+mkdir EmfEngineGPL-master/build
+cd EmfEngineGPL-master/build
 cmake ..
 make && make install
 cd ../..
